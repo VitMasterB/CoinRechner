@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\Coinrechner\\Coinrechner.csproj": {}
+    "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\CoinRechner\\Coinrechner.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\Coinrechner\\Coinrechner.csproj": {
+    "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\CoinRechner\\Coinrechner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\Coinrechner\\Coinrechner.csproj",
+        "projectUniqueName": "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\CoinRechner\\Coinrechner.csproj",
         "projectName": "Coinrechner",
-        "projectPath": "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\Coinrechner\\Coinrechner.csproj",
+        "projectPath": "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\CoinRechner\\Coinrechner.csproj",
         "packagesPath": "C:\\Users\\bv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\Coinrechner\\obj\\",
+        "outputPath": "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\CoinRechner\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

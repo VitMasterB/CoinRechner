@@ -13,10 +13,9 @@ namespace CoinRechner
             Console.WriteLine("Bitte geben Sie den Startpreis an");
             var startPrice = Convert.ToDouble(Console.ReadLine());
 
-            var priceOut = new Price();
+            var priceOut = new Output();
 
             priceOut.calculatorToConsole(startPrice,tradingSide);
-            //Console.WriteLine("Bitte geben Sie die Mindestmenge an");
         }
     }
 }
