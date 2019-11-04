@@ -21,8 +21,7 @@ namespace CoinRechner.Calculator
         List<double> priceFirst = new List<double>();
         List<double> priceSecond = new List<double>();
 
-        //Methode zur Berechnung der Verkaufspreise
-        private void priceCalculatorFirst(double price, string tradingSide)
+        public void priceCalculatorFirst(double price, string tradingSide)
         {
             if (tradingSide == "V" || tradingSide == "v")
             {
@@ -40,8 +39,7 @@ namespace CoinRechner.Calculator
             }
         }
 
-        //Methode zur Berechnung des Kaufpreises
-        private void priceCalculatorSecond(double price, string tradingSide)
+        public void priceCalculatorSecond(double price, string tradingSide)
         {
             if (tradingSide == "v" || tradingSide == "V")
             {
@@ -59,34 +57,21 @@ namespace CoinRechner.Calculator
             }
         }
 
-
-        //Preise werden ausgegeben
-        public void calculatorToConsole(double price, string tradingSide)
+        public void calculatePriceList(double price, string tradingSide)
         {
             this.price = price;
             priceCalculatorFirst(price, tradingSide);
             priceCalculatorSecond(price, tradingSide);
+        }
 
-            if (tradingSide == "v" || tradingSide == "V")
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    Console.WriteLine(i + 1 + ". Bot:");
-                    Console.WriteLine("Buyprice: " + Math.Round(priceSecond[i], 6));
-                    Console.WriteLine("Sellprice: " + Math.Round(priceFirst[i], 6));
-                    Console.WriteLine("");
-                }
-            }
-            else
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    Console.WriteLine(i + 1 + ". Bot:");
-                    Console.WriteLine("Buyprice: " + Math.Round(priceFirst[i], 6));
-                    Console.WriteLine("Sellprice: " + Math.Round(priceSecond[i], 6));
-                    Console.WriteLine("");
-                }
-            }
+        public List<double> ListFirst
+        {
+            get {return priceFirst;}
+        }
+
+        public List<double> ListSecond
+        {
+            get {return priceSecond;}
         }
     }
 }
