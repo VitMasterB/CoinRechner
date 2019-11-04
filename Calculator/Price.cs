@@ -59,6 +59,13 @@ namespace CoinRechner.Calculator
             }
         }
 
+        public void calculatePriceList(double price, string tradingSide)
+        {
+            this.price = price;
+            priceCalculatorFirst(price, tradingSide);
+            priceCalculatorSecond(price, tradingSide);
+        }
+
 
         //Preise werden ausgegeben
         public void calculatorToConsole(double price, string tradingSide)
