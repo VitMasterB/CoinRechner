@@ -17,8 +17,6 @@ namespace CoinRechner
 
             priceOut.calculatorToConsole(startPrice,tradingSide);
             //Console.WriteLine("Bitte geben Sie die Mindestmenge an");
-
-            Console.WriteLine("Bitte geben Sie den Startpreis an");
         }
     }
 }
