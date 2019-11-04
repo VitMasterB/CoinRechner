@@ -1,0 +1,66 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\Coinrechner\\Coinrechner.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\Coinrechner\\Coinrechner.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\Coinrechner\\Coinrechner.csproj",
+        "projectName": "Coinrechner",
+        "projectPath": "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\Coinrechner\\Coinrechner.csproj",
+        "packagesPath": "C:\\Users\\bv\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\Coinrechner\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\bv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://tfs:81/nuget/Diamant%20Cloud": {},
+          "http://tfs:81/nuget/Diamant%20Cloud%20Entwicklung": {},
+          "http://tfs:81/nuget/Diamant%20interne%20Tools": {},
+          "http://tfs:81/nuget/nuget.org%20%C3%BCber%20lokalen%20Feed": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
