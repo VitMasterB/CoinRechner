@@ -1,34 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\CoinRechner\\Coinrechner.csproj": {}
+    "/home/vitmaster/Schreibtisch/GitHub/CoinRechner/Coinrechner.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\CoinRechner\\Coinrechner.csproj": {
+    "/home/vitmaster/Schreibtisch/GitHub/CoinRechner/Coinrechner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\CoinRechner\\Coinrechner.csproj",
+        "projectUniqueName": "/home/vitmaster/Schreibtisch/GitHub/CoinRechner/Coinrechner.csproj",
         "projectName": "Coinrechner",
-        "projectPath": "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\CoinRechner\\Coinrechner.csproj",
-        "packagesPath": "C:\\Users\\bv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\CoinRechner\\obj\\",
+        "projectPath": "/home/vitmaster/Schreibtisch/GitHub/CoinRechner/Coinrechner.csproj",
+        "packagesPath": "/home/vitmaster/.nuget/packages/",
+        "outputPath": "/home/vitmaster/Schreibtisch/GitHub/CoinRechner/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\bv\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/vitmaster/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://tfs:81/nuget/Diamant%20Cloud": {},
-          "http://tfs:81/nuget/Diamant%20Cloud%20Entwicklung": {},
-          "http://tfs:81/nuget/Diamant%20interne%20Tools": {},
-          "http://tfs:81/nuget/nuget.org%20%C3%BCber%20lokalen%20Feed": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {
@@ -58,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }
