@@ -3,75 +3,126 @@ using System;
 
 namespace CoinRechner.Calculator
 {
-    class Price
+    class PriceList
     {
-        private double price;
-        //Tradinggebühren
-        private double fees = 0.002;
-
-        //Prozentualer Preisabstand bei einem Sell start 
-        private List<double> priceDistanceFirstSell = new List<double>() { 1.015, 1.035, 1.055, 1.075, 1.095 };
-        private List<double> priceDistanceSecondSell = new List<double>() { 0.995, 0.988, 0.98, 0.97, 0.955 };
-
-        //Prozentualer Preisabstand bei einem buy start 
-        private List<double> priceDistanceFirstBuy = new List<double>() { 0.985, 0.965, 0.945, 0.925, 0.905 };
-        private List<double> priceDistanceSecondBuy = new List<double>() { 1.005, 1.012, 1.02, 1.03, 1.045 };
-
         //Initalisierung der Listen für die Preise
         List<double> priceFirst = new List<double>();
         List<double> priceSecond = new List<double>();
+        //Initalisierung der StopLoss Preise
+        List<double> priceStopLoss = new List<double>();
 
-        public void priceCalculatorFirst(double price, string tradingSide)
+        public void priceCalculatorFirst(double price, string tradingSide, double buySellDistance, double fee)
         {
             if (tradingSide == "V" || tradingSide == "v")
             {
-                foreach (var newPrice in priceDistanceFirstSell)
+                for (int i = 0; i < 10; i++)
                 {
-                    priceFirst.Add(price * newPrice);
+                    priceFirst.Add(price * (1 + (buySellDistance / 100)));
+                    buySellDistance += buySellDistance;
+                }
+
+                for (int i = 0; i < 10; i++)
+                {
+                    priceFirst[i] += fee;
                 }
             }
             else
             {
-                foreach (var newPrice in priceDistanceFirstBuy)
+                for (int i = 0; i < 10; i++)
                 {
-                    priceFirst.Add(price * newPrice);
+                    priceFirst.Add(price * (1 - (buySellDistance / 100)));
+                    buySellDistance -= buySellDistance;
+                }
+                for (int i = 0; i < 10; i++)
+                {
+                    priceFirst[i] -= fee;
                 }
             }
         }
 
-        public void priceCalculatorSecond(double price, string tradingSide)
+        public void priceCalculatorSecond(string tradingSide, double profit, double fee)
         {
             if (tradingSide == "v" || tradingSide == "V")
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 10; i++)
                 {
-                    priceSecond.Add(priceFirst[i] * (priceDistanceSecondSell[i] - fees));
+                    priceSecond.Add(priceFirst[i] * (1 - (profit / 100)));
+                    profit += 0.25;
+                }
+
+                for (int i = 0; i < 10; i++)
+                {
+                    priceSecond[i] += fee;
                 }
             }
             else
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 10; i++)
                 {
-                    priceSecond.Add(priceFirst[i] * (priceDistanceSecondBuy[i] - fees));
+                    priceSecond.Add(priceFirst[i] * (1 + (profit / 100)));
+                    profit += 0.25;
+                }
+                for (int i = 0; i < 10; i++)
+                {
+                    priceSecond[i] -= fee;
                 }
             }
         }
 
-        public void calculatePriceList(double price, string tradingSide)
+        public void priceCalculatorStopLoss(string tradingSide, double stoplossDistance, double fee)
         {
-            this.price = price;
-            priceCalculatorFirst(price, tradingSide);
-            priceCalculatorSecond(price, tradingSide);
+            if (tradingSide == "v" || tradingSide == "V")
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    priceStopLoss.Add(priceFirst[i] * (1 + (stoplossDistance / 100)));
+                }
+
+                for (int i = 0; i < 10; i++)
+                {
+                    priceStopLoss[i] += fee;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    priceStopLoss.Add(priceFirst[i] * (1 - (stoplossDistance / 100)));
+                }
+
+
+                for (int i = 0; i < 10; i++)
+                {
+                    priceStopLoss[i] -= fee;
+                }
+            }
+        }
+
+        public void AddFee (double price, double fee)
+        {
+            
+        }
+
+        public void calculatePriceList(double price, string tradingSide, double buySellDistance, double profit, double stoplossDistance, double fee)
+        {
+            priceCalculatorFirst(price, tradingSide, buySellDistance, fee);
+            priceCalculatorSecond(tradingSide, profit, fee);
+            priceCalculatorStopLoss(tradingSide, stoplossDistance, fee);
         }
 
         public List<double> ListFirst
         {
-            get {return priceFirst;}
+            get { return priceFirst; }
         }
 
         public List<double> ListSecond
         {
-            get {return priceSecond;}
+            get { return priceSecond; }
+        }
+
+        public List<double> ListStopLoss
+        {
+            get { return priceStopLoss; }
         }
     }
 }

@@ -7,6 +7,15 @@ namespace CoinRechner
     {
         static void Main(string[] args)
         {
+            //StopLoss
+            double stoplossDistance = 3.0;
+            //Abstand vom aktuellen Preis
+            double buySellDistance = 1.5;
+            //Tradinggebühren
+            double fee = 0.1;
+            //Start minimaler Gewinn
+            double profit = 0.5;
+
             Console.WriteLine("Kauf [K] oder Verkauf[V]?");
             string tradingSide = Console.ReadLine();
 
@@ -14,8 +23,8 @@ namespace CoinRechner
             var startPrice = Convert.ToDouble(Console.ReadLine());
 
             var priceOut = new Output();
-
-            priceOut.calculatorToConsole(startPrice,tradingSide);
+            //double price, string tradingSide, double buySellDistance, double profit, double stoplossDistance, double fee
+            priceOut.calculatorToConsole(startPrice, tradingSide, buySellDistance, profit, stoplossDistance, fee);
         }
     }
 }
