@@ -2,9 +2,13 @@ bin/Debug/netcoreapp3.0/Coinrechner.dll
 bin/Debug/netcoreapp3.0/Coinrechner.pdb
 obj/Debug/netcoreapp3.0/Coinrechner.dll
 obj/Debug/netcoreapp3.0/Coinrechner.pdb
+<<<<<<< HEAD
 obj/Coinrechner.csproj.nuget.cache
 obj/Coinrechner.csproj.nuget.dgspec.json
 obj/Coinrechner.csproj.nuget.g.props
 obj/project.assets.json
 obj/Debug/netcoreapp3.0/Coinrechner.assets.cache
 obj/Debug/netcoreapp3.0/Coinrechner.csproj.CoreCompileInputs.cache
+=======
+obj/Debug/netcoreapp3.0/Coinrechner.assets.cache
+>>>>>>> XX
