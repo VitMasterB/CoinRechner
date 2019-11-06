@@ -15,6 +15,8 @@ namespace CoinRechner
             double fee = 0.1;
             //Start minimaler Gewinn
             double profit = 0.5;
+            //Startmenge
+            //double startQuantity = 0.12;
 
             Console.WriteLine("Kauf [K] oder Verkauf[V]?");
             string tradingSide = Console.ReadLine();

@@ -4,32 +4,37 @@ namespace CoinRechner.Calculator
 {
     public class Amount
     {
+        double startQuantity = 0.12;
+        double availableQuantity = 5.7;
+        double increaseAmount = 0.01;
         List<double> quantityList = new List<double>();
         List<double> profitlist = new List<double>();
+        List<double> stopLosslist = new List<double>();
 
-        public double calculateProfit(double buyPrice, double sellPrice, double quantity, string tradingside, double fees)
+        public void calculateProfitX(double price, string tradingSide, double buySellDistance, double profit, double stoplossDistance, double fee, double startQuantity, double availableQuantity, double increaseAmount)
         {
-            var profit = 0.0;
+            double currentProfit = 0.0;
+            int number = 0;
+            int numberStartStopLoss=-1;
+            double restQuantity=availableQuantity-startQuantity;
+            quantityList.Add(startQuantity);
 
-            if (tradingside == "V")
+            var priceLists = new PriceList(); 
+            priceLists.calculatePriceList( price, tradingSide, buySellDistance, profit, stoplossDistance, fee);
+
+            var minProfit = ((priceLists.ListFirst[0]*startQuantity)*(1-fee)-(priceLists.ListSecond[0]*startQuantity)*(1-fee));
+
+            while (availableQuantity > restQuantity)
             {
-                profit = (sellPrice * quantity - buyPrice * quantity) * (1 - fees);
+                while (currentProfit < minProfit)
+                {
+                    startQuantity+=increaseAmount;
+                    number+=1;
+                    numberStartStopLoss+=1;
+                    currentProfit = (priceLists.ListFirst[number]*startQuantity-priceLists.ListSecond[number]*startQuantity)-(quantityList[numberStartStopLoss]*stopLosslist[numberStartStopLoss]);
+
+                }
             }
-            else
-            {
-                profit = (buyPrice * quantity - sellPrice * quantity) * (1 - fees);
-            }
-
-            return profit;
-        }
-
-        public double calculateProfitFull(double buyPrice, double sellPrice, double quantity, string tradingside, double fees, int execution)
-        {
-            var priceLists = new PriceList();
-            //priceLists.calculatePriceList (price, tradingside);
-
-            var profitFull = 0.0;
-            return profitFull;
 
         }
     }

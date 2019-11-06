@@ -55,7 +55,7 @@ namespace CoinRechner.Calculator
                 AddFee(tradingSide, fee, priceSecond);
             }
         }
-
+        //Es wird eine Liste mit den Stoploss Preisen erzeugt
         public void priceCalculatorStopLoss(string tradingSide, double stoplossDistance, double fee)
         {
             if (tradingSide == "v" || tradingSide == "V")
@@ -78,7 +78,7 @@ namespace CoinRechner.Calculator
                 AddFee(tradingSide, fee, priceStopLoss);
             }
         }
-
+        //Hier werden die Handelsgebühren "Fees" zum Preis dazugerechnet
         public void AddFee(string tradingSide, double fee, List<double> list)
         {
             if (tradingSide == "V" || tradingSide == "v")
@@ -96,7 +96,7 @@ namespace CoinRechner.Calculator
                 }
             }
         }
-
+        //Methoden zur Erzeugung der Preislisten, für Buy- und Sellside und Stoploss
         public void calculatePriceList(double price, string tradingSide, double buySellDistance, double profit, double stoplossDistance, double fee)
         {
             priceCalculatorFirst(price, tradingSide, buySellDistance, fee);
@@ -104,6 +104,7 @@ namespace CoinRechner.Calculator
             priceCalculatorStopLoss(tradingSide, stoplossDistance, fee);
         }
 
+        //Zugriff auf die jeweilige Liste
         public List<double> ListFirst
         {
             get { return priceFirst; }
