@@ -32,11 +32,10 @@ namespace CoinRechner.Calculator
             //Den möglichen Verlust für den ersten Trade wird in die Liste hinzugefügt
             lossList.Add(addLoss(priceLists.ListFirst[0],priceLists.ListStopLoss[0],tradingSide,startQuantity));
             //----------------------------------------------------------------------------
-            var restQuantity = availableQuantity - startQuantity;
+            var sumQuantity=quantityList.AsQueryable().Sum();
+            var restQuantity=availableQuantity-startQuantity;
 
-
-
-            while (restQuantity > initialQuantity)
+            while (restQuantity > sumQuantity)
             {
                 numberInBuySellList += 1;
                 sumLoss=lossList.AsQueryable().Sum();
@@ -49,8 +48,15 @@ namespace CoinRechner.Calculator
                     currentProfit = (priceLists.ListFirst[numberInBuySellList] * startQuantity - priceLists.ListSecond[numberInBuySellList] * startQuantity)-sumLoss;
 
                 }
+                if (restQuantity > (initialQuantity+quantityList.AsQueryable().Sum()))
+                {
+                    quantityList.Add(startQuantity);
+                }
 
-                quantityList.Add(startQuantity);
+                else
+                {
+                    restQuantity = 0;
+                }
                 lossList.Add(addLoss(priceLists.ListFirst[numberInBuySellList],priceLists.ListStopLoss[numberInBuySellList],tradingSide,startQuantity));
 
                 restQuantity -= initialQuantity;
