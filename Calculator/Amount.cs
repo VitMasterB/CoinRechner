@@ -1,52 +1,82 @@
 using System.Collections.Generic;
+using System;
+using System.Linq;
 
 namespace CoinRechner.Calculator
 {
     public class Amount
     {
-        double startQuantity;
-        double availableQuantity = 5.7;
-        double increaseAmount = 0.01;
-        double currentProfit = 0.0;
-        int numberInBuySellList = 0;
         int numberStartStopLoss = -1;
+        double currentProfit;
+        int numberInBuySellList;
+        double sumLoss;
 
         List<double> quantityList = new List<double>();
         List<double> profitlist = new List<double>();
         List<double> stopLosslist = new List<double>();
+        List<double> lossList = new List<double>();
 
         public void calculateProfit(double price, string tradingSide, double buySellDistance, double profit, double stoplossDistance, double fee, double startQuantity, double availableQuantity, double increaseAmount)
-        {
-            //Die Mindestmenge wird zur Mengenliste hinzugefügt
-            quantityList.Add(startQuantity);
-            //Es wird direkt die Mindestmenge von der Verfügbaren Menge abgezogen
-            double restQuantity = availableQuantity - startQuantity;
-            //Startmenge für jede Berechnung
-            var initialQuantity = startQuantity;
-
+        {   
+            //Startmenge für jede Berechnung       
+            var initialQuantity = 0.0;
+            //Preislisten werden generiert
             var priceLists = new PriceList();
             priceLists.calculatePriceList(price, tradingSide, buySellDistance, profit, stoplossDistance, fee);
-            //Der Minimale Profit wird berechnet. Alle darauf folgenden Trades müssen mindestens diesen Gewinn machen, abzüglich der
-            //Verluste aus einem vorherigen StopLoss
-            var minProfit = ((priceLists.ListFirst[0] * startQuantity) * (1 - fee) - (priceLists.ListSecond[0] * startQuantity) * (1 - fee));
 
-            while (restQuantity > 0)
+            //Der Minimale Gewinn, der mindestens erwirtschaftet werden muss für einen Verkaufsstart
+            var minProfit = ((priceLists.ListFirst[0] * startQuantity) * (1 - fee) - (priceLists.ListSecond[0] * startQuantity) * (1 - fee));
+            
+            //Die Mindestmenge wird zur Mengenliste hinzugefügt
+            quantityList.Add(startQuantity);
+            //Den möglichen Verlust für den ersten Trade wird in die Liste hinzugefügt
+            lossList.Add(addLoss(priceLists.ListFirst[0],priceLists.ListStopLoss[0],tradingSide,startQuantity));
+            //----------------------------------------------------------------------------
+            var restQuantity = availableQuantity - startQuantity;
+
+
+
+            while (restQuantity > initialQuantity)
             {
                 numberInBuySellList += 1;
-                numberStartStopLoss += 1;
+                sumLoss=lossList.AsQueryable().Sum();
 
                 while (currentProfit < minProfit)
                 {
+                
                     initialQuantity += increaseAmount;
 
-                    currentProfit = (priceLists.ListFirst[numberInBuySellList] * startQuantity - priceLists.ListSecond[numberInBuySellList] * startQuantity) - (quantityList[numberStartStopLoss] * stopLosslist[numberStartStopLoss]);
+                    currentProfit = (priceLists.ListFirst[numberInBuySellList] * startQuantity - priceLists.ListSecond[numberInBuySellList] * startQuantity)-sumLoss;
 
                 }
 
-                quantityList.Add(initialQuantity);
-                restQuantity-=initialQuantity;
+                quantityList.Add(startQuantity);
+                lossList.Add(addLoss(priceLists.ListFirst[numberInBuySellList],priceLists.ListStopLoss[numberInBuySellList],tradingSide,startQuantity));
+
+                restQuantity -= initialQuantity;
                 initialQuantity = startQuantity;
             }
+
+            foreach (var quantity in quantityList)
+            {
+                Console.WriteLine(quantity);
+            }
+
+        }
+
+        private double addLoss(double buySellPrice,double stopLossprice,string tradingSide, double quantity)
+        {
+            double loss;
+
+            if (tradingSide == "v"|| tradingSide =="V")
+            {
+                loss = (buySellPrice*quantity)-(stopLossprice*quantity);
+            }
+            else 
+            {
+                loss = (stopLossprice*quantity)-(buySellPrice*quantity);
+            }
+            return loss;
         }
     }
 }

@@ -15,8 +15,8 @@ namespace CoinRechner.Calculator
                 for (int i = 0; i < 5; i++)
                 {
                     Console.WriteLine(i + 1 + ". Bot:");
-                    Console.WriteLine("Buyprice: " + Math.Round(priceOutput.ListSecond[i], 6));
-                    Console.WriteLine("Sellprice: " + Math.Round(priceOutput.ListFirst[i], 6));
+                    Console.WriteLine("Buyprice: " + Math.Round(priceOutput.ListSecond[i], 7));
+                    Console.WriteLine("Sellprice: " + Math.Round(priceOutput.ListFirst[i], 7));
                     Console.WriteLine("");
                 }
             }
@@ -25,8 +25,8 @@ namespace CoinRechner.Calculator
                 for (int i = 0; i < 5; i++)
                 {
                     Console.WriteLine(i + 1 + ". Bot:");
-                    Console.WriteLine("Buyprice: " + Math.Round(priceOutput.ListFirst[i], 6));
-                    Console.WriteLine("Sellprice: " + Math.Round(priceOutput.ListSecond[i], 6));
+                    Console.WriteLine("Buyprice: " + Math.Round(priceOutput.ListFirst[i], 7));
+                    Console.WriteLine("Sellprice: " + Math.Round(priceOutput.ListSecond[i], 7));
                     Console.WriteLine("");
                 }
             }

@@ -13,12 +13,13 @@ namespace CoinRechner.Calculator
 
         public void priceCalculatorFirst(double price, string tradingSide, double buySellDistance, double fee)
         {
+            double startbuySellDistance=buySellDistance;
             if (tradingSide == "V" || tradingSide == "v")
             {
                 for (int i = 0; i < 10; i++)
                 {
                     priceFirst.Add(price * (1 + (buySellDistance / 100)));
-                    buySellDistance += buySellDistance;
+                    buySellDistance += startbuySellDistance;
                 }
 
                 AddFee(tradingSide, fee, priceFirst);
@@ -28,7 +29,7 @@ namespace CoinRechner.Calculator
                 for (int i = 0; i < 10; i++)
                 {
                     priceFirst.Add(price * (1 - (buySellDistance / 100)));
-                    buySellDistance -= buySellDistance;
+                    buySellDistance -= startbuySellDistance;
                 }
                 AddFee(tradingSide, fee, priceFirst);
             }
@@ -85,14 +86,14 @@ namespace CoinRechner.Calculator
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    list[i] += fee;
+                    list[i] *= (1+fee/100);
                 }
             }
             else
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    list[i] -= fee;
+                    list[i] *= (1-fee/100);
                 }
             }
         }

@@ -8,29 +8,34 @@
     ".NETCoreApp,Version=v3.0": []
   },
   "packageFolders": {
-    "/home/vitmaster/.nuget/packages/": {},
-    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\bv\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/vitmaster/Schreibtisch/GitHub/CoinRechner/Coinrechner.csproj",
+      "projectUniqueName": "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\CoinRechner\\Coinrechner.csproj",
       "projectName": "Coinrechner",
-      "projectPath": "/home/vitmaster/Schreibtisch/GitHub/CoinRechner/Coinrechner.csproj",
-      "packagesPath": "/home/vitmaster/.nuget/packages/",
-      "outputPath": "/home/vitmaster/Schreibtisch/GitHub/CoinRechner/obj/",
+      "projectPath": "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\CoinRechner\\Coinrechner.csproj",
+      "packagesPath": "C:\\Users\\bv\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\bv\\Desktop\\CSHARP\\GitHub\\CoinRechner\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/vitmaster/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\bv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "http://tfs:81/nuget/Diamant%20Cloud": {},
+        "http://tfs:81/nuget/Diamant%20Cloud%20Entwicklung": {},
+        "http://tfs:81/nuget/Diamant%20interne%20Tools": {},
+        "http://tfs:81/nuget/nuget.org%20%C3%BCber%20lokalen%20Feed": {}
       },
       "frameworks": {
         "netcoreapp3.0": {
@@ -60,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -28,14 +28,13 @@ namespace CoinRechner
             //double price, string tradingSide, double buySellDistance, double profit, double stoplossDistance, double fee
             priceOut.calculatorToConsole(startPrice, tradingSide, buySellDistance, profit, stoplossDistance, fee);
 
-            //Test
-                    double startQuantity = 0.12;
-        double availableQuantity = 5.7;
-        double increaseAmount = 0.01;
-        double currentProfit = 0.0;
-        int numberInBuySellList = 0;
-        int numberStartStopLoss = -1;
+            //TEST
+            double startQuantity = 0.12;
+            double availableQuantity = 5.7;
+            double increaseAmount = 0.01;
 
+            var quantityTest = new Amount();
+            quantityTest.calculateProfit(startPrice,tradingSide,buySellDistance,profit,stoplossDistance,fee,startQuantity,availableQuantity,increaseAmount);
         }
     }
 }
