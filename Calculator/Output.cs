@@ -11,8 +11,7 @@ namespace CoinRechner.Calculator
             var priceOutput = new Price();
 
             this.price = price;
-            priceOutput.priceCalculatorFirst(price, tradingSide);
-            priceOutput.priceCalculatorSecond(price, tradingSide);
+            priceOutput.calculatePriceList(price, tradingSide);
 
             if (tradingSide == "v" || tradingSide == "V")
             {
